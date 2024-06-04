@@ -1,30 +1,19 @@
-const fastify = require("fastify")({ logger: true });
-require("dotenv").config();
 const {
-	S3Client,
 	CompleteMultipartUploadCommand,
 	CreateMultipartUploadCommand,
 	UploadPartCommand,
-	GetObjectCommand,
 } = require("@aws-sdk/client-s3");
-const path = require("path");
+
 const fs = require("fs");
-const s3 = new S3Client({
-	region: process.env.S3_REGION,
-	endpoint: process.env.S3_END_POINT,
-	credentials: {
-		accessKeyId: process.env.S3_ACCESS_KEY,
-		secretAccessKey: process.env.S3_SECRET_KEY,
-	},
-});
 
 // File
 var fileName = "file_name";
 var filePath = "./" + fileName;
 var fileKey = fileName;
 var buffer = fs.readFileSync(filePath);
+
 // S3 Upload options
-var bucket = "bucket_name";
+var bucket = "voices";
 
 // Upload
 var startTime = new Date();
@@ -39,17 +28,6 @@ var multiPartParams = {
 var multipartMap = {
 	Parts: [],
 };
-
-async function completeMultipartUpload(s3, doneParams) {
-	console.log(doneParams);
-	const completeMultipartUploadResponse = await s3.send(
-		new CompleteMultipartUploadCommand(doneParams)
-	);
-
-	var delta = (new Date() - startTime) / 1000;
-	console.log("Completed upload in", delta, "seconds");
-	console.log("Final upload data:", completeMultipartUploadResponse);
-}
 
 async function uploadPart(s3, multipart, partParams, tryNum) {
 	var tryNum = tryNum || 1;
@@ -75,6 +53,10 @@ async function uploadPart(s3, multipart, partParams, tryNum) {
 
 	console.log("Completing upload...");
 	completeMultipartUpload(s3, doneParams);
+}
+
+async function completeMultipartUpload(s3, doneParams) {
+	await s3.send(new CompleteMultipartUploadCommand(doneParams));
 }
 
 // Multipart
@@ -105,25 +87,3 @@ s3.send(new CreateMultipartUploadCommand(multiPartParams)).then((value) => {
 		uploadPart(s3, createMultipartUploadResponse, partParams);
 	}
 });
-
-const param = { Bucket: 'sample_bucket', Key: 'file.png' };
-
-// call S3 to retrieve upload file to specified bucket
-const run = async () => {
-  try {
-      const data = await s3.send(new GetObjectCommand(param));
-      const ws = fs.createWriteStream(
-          __dirname + '/../files/download-from-nodejs-sdk.png'
-      );
-      data.Body.pipe(ws);
-      console.log('Success');
-  } catch (err) {
-      console.log('Error', err);
-  }
-};
-
-fastify.get("/", (req, res) => {
-	res.send("hello");
-});
-
-fastify.listen({ port: 3000, host: "0.0.0.0" });
