@@ -55,6 +55,10 @@ body {
   font-family: "ir";
 }
 
+i.icon_download{
+  color: #0381af;
+}
+
 i.icon_delete{
   color: red;
 }

@@ -24,146 +24,150 @@
 <script src="../js/lib/wavesurfer/intro.min.js"></script>
 <script type="module" src="../js/audio/record.esm.js"></script>
 <script src="../js/audio/actionhelper.js"></script>
+<link href="../css/lib/Roboto.css" rel="stylesheet" type="text/css">
+<link href="../css/fonts/icomoon/style.css" rel="stylesheet" type="text/css">
+<link href="../css/lib/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../css/lib/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+<link href="../css/lib/layout.min.css" rel="stylesheet" type="text/css">
+<link href="../css/lib/components.min.css" rel="stylesheet" type="text/css">
+<link href="../css/lib/colors.min.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="../img/sharif.png" type="image/x-icon">
 
+<link rel="stylesheet" href="../css/lib/persian-datepicker.min.css">
+<!-- /global stylesheets -->
+<link rel="stylesheet" href="../css/lib/global-main.css">
+<link rel="stylesheet" href="../css/lib/panel-main.css">
 
 <body >
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
+<div class="navbar navbar-expand-md navbar-dark row justify-content-between align-items-center m-0">
+
+
+    <div class="d-md-none col-4">
+        <!--			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">-->
+        <!--				<i class="icon-tree5"></i>-->
+        <!--			</button>-->
+        <button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+            <i class="icon-paragraph-justify3"></i>
+        </button>
+    </div>
+
+    <div class="col-12 row collapse navbar-collapse d-none d-md-flex justify-content-between m-0" id="navbar-mobile">
+        <ul class="col-12 justify-content-center navbar-nav">
+
+            <img src="../img/sharif.png"  alt="logo" class="col-12" style="mix-blend-mode: color-burn;max-width: 100px">
+
         </ul>
     </div>
-</nav>
-<div class="row mt-2 mx-1" style="justify-content: end">
-    <button type="button" class="btn btn-outline-info mx-2 px-5" data-toggle="modal" data-target="#modalRecordVoice">
-        ضبط صدا</button>
-    <button type="button" class="btn  mx-2 btn-outline-success px-5" data-toggle="modal" data-target="#modalUploadVoice">
-        اپلود صدا</button>
+
 </div>
-<div class="card mx-auto my-3 directions-rtl" style="text-align: center;width: 95%">
-    <table class="table table-hover table-dark mx-auto my-5" style="width: 90%">
-        <thead>
-        <tr>
-            <th>عملیات</th>
-            <th>توضیحات</th>
-            <th>ضیط</th>
-
-            <th>تاریخ ایجاد</th>
-            <th>نام</th>
-            <th>#</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td style="vertical-align: center">
-                <div class="list-icons">
-                    <div class="dropdown">
-                        <a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-cog6"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="../voice/test.mp3" download class="dropdown-item">
-                                <i class="icon-download icon_download"></i>دانلود
-                            </a>
-                            <a tag="` + i + `" class="dropdown-item deleteVoice">
-                                <i class="icon-trash icon_delete"></i>حذف
-                            </a>
+<div class="page-content">
 
 
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <div class="page-header page-header-light">
+
+            <div class="page-header-content header-elements-md-inline">
+                <div class="page-title d-flex justify-content-between w-100 p-0">
+                    <div class="card m-0 w-100 border-0 shadow-0 card-collapsed">
+                        <div class="card-header header-elements-inline pr-0 pl-0">
+                            <div>
+                                <div class="row mt-2 mx-1" style="justify-content: end">
+                                    <button type="button" class="btn btn-outline-info mx-2 px-5" data-toggle="modal" data-target="#modalRecordVoice">
+                                        ضبط صدا</button>
+                                    <button type="button" class="btn  mx-2 btn-outline-success px-5" data-toggle="modal" data-target="#modalUploadVoice">
+                                        اپلود صدا</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+<!--        <div class="row mt-2 mx-1" style="justify-content: end">-->
+<!--            <button type="button" class="btn btn-outline-info mx-2 px-5" data-toggle="modal" data-target="#modalRecordVoice">-->
+<!--                ضبط صدا</button>-->
+<!--            <button type="button" class="btn  mx-2 btn-outline-success px-5" data-toggle="modal" data-target="#modalUploadVoice">-->
+<!--                اپلود صدا</button>-->
+<!--        </div>-->
+        <div class="content" style="direction: rtl">
+            <!-- Dashboard content -->
+            <div class="row">
+                <div class="col-xl-12">
+
+                    <div class="card">
+                        <div id="voiceList" class="table-responsive text-center">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>نام</th>
+                                    <th>تاریخ ایجاد</th>
+                                    <th>ضیط</th>
+                                    <th>توضیحات</th>
+
+                                    <th>عملیات</th>
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </td>
-            <td style="min-width:200px">این صدا مربوط می شود به توضیحات ددلاین موبایل که استاد سر کلاس دادند</td>
-            <td><audio id="myAudio" controls src="../voice/test.mp3" controlslist="nodownload noplaybackrate">
-
-            </audio></td>
-            <td>${moment().format("jYYYY/jMM/jDD - HH:mm")}</td>
-            <td>تضویحات ددلاین موبایل</td>
-            <th scope="row">1</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="list-icons">
-                    <div class="dropdown">
-                        <a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-cog6"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="../voice/test.mp3" download class="dropdown-item">
-                                <i class="icon-download icon_download"></i>دانلود
-                            </a>
-                            <a tag="` + i + `" class="dropdown-item deleteVoice">
-                                <i class="icon-trash icon_delete"></i>حذف
-                            </a>
-
-
-                        </div>
-                    </div>
+                <div class="col-12">
+                    <section class="pagination p-voices justify-content-center d-none">
+                        <nav aria-label="Page navigation" class="row-paginate">
+                            <div class="box-paginate mb-3">
+                                <div class="title-of-pagination text-center mb-2">
+                                    <span>تعداد صفحات <numberofpage></numberofpage></span>
+                                </div>
+                                <ul class="d-inline-flex"></ul>
+                            </div>
+                        </nav>
+                    </section>
                 </div>
-            </td>
-            <td style="min-width:200px">این صدا مربوط می شود به توضیحات ددلاین موبایل که استاد سر کلاس دادند</td>
-            <td><audio id="myAudio" controls src="../voice/test.mp3" controlslist="nodownload noplaybackrate">
+            </div>
+            <!-- /dashboard content -->
 
-            </audio></td>
-            <td>${moment().format("jYYYY/jMM/jDD - HH:mm")}</td>
-            <td>تضویحات ددلاین موبایل</td>
-            <th scope="row">2</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="list-icons">
-                    <div class="dropdown">
-                        <a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-cog6"></i>
+        </div>
+        <div class="navbar navbar-expand-lg navbar-light" style="height: 50px">
+            <div class="text-center d-lg-none w-100">
+                <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+                    <i class="icon-unfold mr-2"></i>
+                    فوتر
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-footer">
+
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item d-none">
+                        <a href="#" class="navbar-nav-link" target="_blank"><i
+                                class="icon-lifebuoy mr-2"></i> پشتیبانی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="mr-3 text-dark">
+                            <span class="m-0 d-none d-md-inline-block">تماس با ما</span>
+                            <i class="icon-ring-1"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="../voice/test.mp3" download class="dropdown-item">
-                                <i class="icon-download icon_download"></i>دانلود
-                            </a>
-                            <a tag="` + i + `" class="dropdown-item deleteVoice">
-                                <i class="icon-trash icon_delete"></i>حذف
-                            </a>
+                    </li>
 
+                </ul>
+            </div>
+        </div>
 
-                        </div>
-                    </div>
-                </div>
-            </td>
-            <td style="min-width:200px">این صدا مربوط می شود به توضیحات ددلاین موبایل که استاد سر کلاس دادند</td>
-            <td><audio id="myAudio" controls src="../voice/test.mp3" controlslist="nodownload noplaybackrate">
+    </div>
 
-            </audio></td>
-            <td>${moment().format("jYYYY/jMM/jDD - HH:mm")}</td>
-            <td>تضویحات ددلاین موبایل</td>
-            <th scope="row">3</th>
-        </tr>
-        </tbody>
-    </table>
 </div>
+
 
 
 <div id="modalMainVoice" class="modal" tabindex="-1" role="dialog">
@@ -292,6 +296,13 @@
         </div>
     </div>
 </div>
+<script src="../js/lib/jquery.min.js"></script>
+<script src="../js/lib/plugins/ui/moment/moment.min.js"></script>
+<script src="../js/lib/pagination/bs_pagination.min.js"></script>
+<script src="../js/lib/plugins/jalali.js"></script>
+
+<script src="../js/utility.js"></script>
+<script src="../js/index.js"></script>
 <script src="../js/audio/audio.js"></script>
 <script type="module" src="../js/audio/tes.js"></script>
 <script src="../js/lib/jquery/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
