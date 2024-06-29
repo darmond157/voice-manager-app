@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AudioFy - Trim and merge audio in browser</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-ios.css">
+	<link rel="icon" type="image/jpg" href="assets/logo.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
+</head>
+<!--&lt;!&ndash; main wavesurfer.js lib &ndash;&gt;-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.2.3/wavesurfer.min.js"></script>
+<!-- wavesurfer.js regions -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.2.3/plugin/wavesurfer.regions.min.js"></script>
+<!--Enjoy Hints-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+<script type="module" src="record.esm.js"></script>
+<script src="actionhelper.js"></script>
+
+<body >
+	<div class="w3-container">
+	  <br>
+	  <div id="waveform" class="w3-border w3-round-large"
+	  	data-step="3" data-intro="Click and drag to select section">
+	  </div>
+	  <br>
+	    <div class="w3-row">
+	    <div class="w3-half w3-container w3-hide" id="audio-buttons">
+		<button class="w3-button w3-border w3-border-green w3-round-xlarge" onClick="playAndPause()">
+			<i id="play-pause-icon" class="fa fa-play"></i>
+		</button>
+
+		<b id="time-current">0.00</b> / <b id="time-total">0.00</b>
+		</div>
+		<div class="w3-half w3-container">
+		<input id="audio-file" type="file" onChange="loadAudio2()"
+			data-step="2" data-intro="Select a MP3 File">
+	    </div>
+		</div>
+	  <hr>
+	  	  <div data-step="4" data-intro="Would you like to know how to merge tracks. Click Next.">
+	  	  <table class="w3-table-all w3-card-4" id="audio-tracks"
+	  	  	data-step="5" data-intro="Select atleast 2 checkboxes for merging. Click Next.">
+		   	<thead>
+		    <tr class="w3-border w3-border-teal w3-text-teal">
+		      <th></th>
+		      <th>Start</th>
+		      <th>End</th>
+		      <th></th>
+		      <th></th>
+		      <th></th>
+		    </tr>
+			</thead>
+			<tbody></tbody>
+			<tfoot></tfoot>
+		  </table>
+		  </div>
+		  <br>
+		  <div id="merge-option" class="w3-hide">
+			<button class="w3-button w3-border w3-border-teal w3-round-xlarge" onClick="mergeTrack()"
+				data-step="6" data-intro="Click to merge selected tracks. Bye bye!! :)">
+				<i>Merge tracks</i>
+			</button>
+			<br><br>
+			<div class="w3-row w3-hide" id="merged-track-div">
+			<b class="w3-col l1 w3-text-olive"><i>Merged Audio : </i></b>
+			<audio controls="controls" class="w3-col l11" id="merged-track">
+				<source src="" type="">
+			</audio>
+			</div>
+		  </div>
+
+	</div>
+	<div>
+		<h1 style="margin-top: 0">Press Record to start recording 🎙️</h1>
+
+		<p>
+			📖 <a href="https://wavesurfer.xyz/docs/classes/plugins_record.RecordPlugin">Record plugin docs</a>
+		</p>
+
+		<button id="record">Record</button>
+		<button id="pause" style="display: none;">Pause</button>
+		<button onclick="loadAudio3()">sabt kon</button>
+		<select id="mic-select">
+			<option value="" hidden>Select mic</option>
+		</select>
+		<label style="display:inline-block;"><input type="checkbox"  /> Scrolling waveform</label>
+		<p id="progress">00:00</p>
+
+		<div id="mic" style="border: 1px solid #ddd; border-radius: 4px; margin-top: 1rem"></div>
+
+		<div id="recordings" style="margin: 1rem 0"></div>
+	</div>
+	<script src="audio.js"></script>
+	<script type="module" src="tes.js"></script>
+</body>
+</html>

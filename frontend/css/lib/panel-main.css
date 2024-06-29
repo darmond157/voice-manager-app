@@ -1,0 +1,117 @@
+html,
+body {
+  font-family: "ir";
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inputfile + label {
+  font-size: .9em;
+  line-height: 1.9rem;
+  height: 32px;
+  color: white;
+  margin-top: .1rem;
+  border-radius: .2rem;
+  border: 1px solid black;
+  text-align: center;
+  display: block;
+  margin-bottom: unset !important;
+  background-color: var(--primary);
+}
+
+
+.image-cropper-icon{
+  padding: .6rem 1rem 0.6rem 1rem;
+  border-radius: 0.3rem;
+  background-color: #efefef;
+}
+
+.text-align-center{
+  text-align: center!important;
+}
+.search-btn.rotate-180 {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.search-btn:after {
+  content: none;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.avatar-wrapper {
+  display: inline-block;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+}
+.avatar-wrapper img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-output {
+  width: 150px;
+  height: 150px;
+}
+.image-output:not(:first-child) {
+  margin-right: 5px;
+}
+.image-output .remove-media-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  background: #fff;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  visibility: hidden;
+}
+.image-output:hover .remove-media-btn {
+  visibility: visible;
+}
+
+.store-logo-wrapper section {
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.store-logo-wrapper img {
+  height: 100%;
+  object-fit: cover;
+}
+.store-logo-wrapper .remove-btn {
+  position: absolute;
+  padding: 0;
+  background-color: transparent;
+  color: red;
+  right: 13px;
+  visibility: hidden;
+}
+.store-logo-wrapper .remove-btn:hover {
+  background-color: transparent;
+}
+.store-logo-wrapper .remove-btn i {
+  font-size: 12px;
+}
+.store-logo-wrapper:hover .remove-btn {
+  visibility: visible;
+}
+
+/*# sourceMappingURL=panel-main.css.map */

@@ -1,0 +1,20 @@
+/* Error: compound selectors may no longer be extended.
+ * Consider `@extend a, .breadcrumb-item` instead.
+ * See http://bit.ly/ExtendCompound for details.
+ * 
+ *     ,
+ * 169 |     @extend a.breadcrumb-item;
+ *     |             ^^^^^^^^^^^^^^^^^
+ *     '
+ *   ..\..\..\..\themes\material\bootstrap_limitless\_breadcrumb.scss 169:13  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: compound selectors may no longer be extended.\a Consider `@extend a, .breadcrumb-item` instead.\aSee http://bit.ly/ExtendCompound for details.\a\a     \2577 \a 169 \2502      @extend a.breadcrumb-item;\a     \2502              ^^^^^^^^^^^^^^^^^\a     \2575 \a   ..\\..\\..\\..\\themes\\material\\bootstrap_limitless\\_breadcrumb.scss 169:13  root stylesheet";
+}
