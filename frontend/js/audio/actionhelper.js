@@ -38,9 +38,9 @@ function createAudioRow(arr) {
 	}
 
 	var actionsArray = new Array(
-		{"action":"play", "iconClass":"fa fa-play-circle-o"}, 
-		{"action":"download", "iconClass":"fa fa-download"}, 
-		{"action":"delete", "iconClass":"fa fa-times"});
+		{"action":"play", "iconClass":"icon-play3"},
+		{"action":"download", "iconClass":"icon-download"},
+		{"action":"delete", "iconClass":"icon-cross3"});
 	for(var i=0; i<actionsArray.length; i++) {
 		var tableData = document.createElement("td");
 		tableData.setAttribute("id", arr[0]+"-"+actionsArray[i].action);

@@ -3,11 +3,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="Content-Language" content="fa" />
-    <title>AudioFy - Trim and merge audio in browser</title>
+    <title>لیست صدا</title>
 
     <link rel="stylesheet" href="../css/lib/Roboto.css">
     <link href="../css/fonts/icomoon/style.css" rel="stylesheet" type="text/css">
+    <style>
+        td{
+            margin: auto;
+            vertical-align: center;!important;
+            align-items: center;
 
+        }
+    </style>
     <link rel="stylesheet" href="../css/lib/w3/w3-1.css">
     <link rel="stylesheet" href="../css/lib/w3/w3-colors-ios.css">
     <link rel="icon" type="image/jpg" href="assets/logo.jpg">
@@ -173,11 +180,12 @@
 <div id="modalMainVoice" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-header py-2" style="background-color: #d2d2d2">
+                <button style="padding: 0;!important;margin: 0;!important;vertical-align: center" type="button" class="close mt-1 ml-0 py-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <h5 class="modal-title">یکپارچه سازی صدا</h5>
+
             </div>
             <div class="modal-body">
                 <div class="w3-container">
@@ -198,13 +206,13 @@
                     </div>
                     <hr>
                     <div data-step="4" data-intro="Would you like to know how to merge tracks. Click Next.">
-                        <table class="w3-table-all w3-card-4" id="audio-tracks"
+                        <table class="w3-table-all w3-card-4" id="audio-tracks" style="vertical-align: center"
                                data-step="5" data-intro="Select atleast 2 checkboxes for merging. Click Next.">
                             <thead>
                             <tr class="w3-border w3-border-teal w3-text-teal">
                                 <th></th>
-                                <th>Start</th>
-                                <th>End</th>
+                                <th style="text-align: center">Start</th>
+                                <th style="text-align: center;vertical-align: center">End</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -221,8 +229,8 @@
                             <i>Merge tracks</i>
                         </button>
                         <br><br>
-                        <div class="w3-row w3-hide" id="merged-track-div">
-                            <b class="w3-col l1 w3-text-olive"><i>Merged Audio : </i></b>
+                        <div class="w3-row w3-hide d-flex flex-column " id="merged-track-div">
+                            <b class="w3-col l1 w3-text-olive" style="text-align: left"><i>Merged Audio : </i></b>
                             <audio controls="controls" class="w3-col l11" id="merged-track">
                                 <source src="" type="">
                             </audio>
@@ -241,9 +249,9 @@
 <div id="modalRecordVoice" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-2" style="background-color: #d2d2d2">
 
-                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                <button style="padding: 0;!important;margin: 0;!important;vertical-align: center" type="button" class="close mt-1 ml-0 py-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h5 class="modal-title">ضبط صدا</h5>
@@ -276,16 +284,16 @@
 <div id="modalUploadVoice" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header py-2" style="background-color: #d2d2d2">
 
-                <button type="button" class="close mx-0" data-dismiss="modal" aria-label="Close">
+                <button style="padding: 0;!important;margin: 0;!important;vertical-align: center" type="button" class="close mt-1 ml-0 py-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h5 class="modal-title">آپلود صدا</h5>
             </div>
             <div class="modal-body">
-                <div class="w3-half w3-container">
-                    <input id="audio-file" type="file" onChange="loadAudio2()"
+                <div class="w3-half w3-container" style="width: 100%">
+                    <input id="audio-file" type="file" style="width: 70%" onChange="loadAudio2()"
                            data-step="2" data-intro="Select a MP3 File">
                 </div>
             </div>
