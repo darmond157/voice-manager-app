@@ -14,7 +14,7 @@ function getVoice(page, count) {
                      
                     </audio></td>
 
-                    <td style="min-width:200px">این صدا مربوط می شود به توضیحات ددلاین موبایل که استاد سر کلاس دادند</td>
+                    <td class="testHashtag" style="min-width:200px">این صدا مربوط می شود به #توضیحات ددلاین موبایل که #استاد سر کلاس دادند</td>
                     <td>
                         <div class="list-icons">
                             <div class="dropdown">
@@ -42,6 +42,7 @@ function getVoice(page, count) {
 
     table.append(outPut);
     newPaginate(25, count, "p-voices", getVoice, 1)
+    changehashtag()
 
 
 }
@@ -84,5 +85,28 @@ $("#voiceList").on('click', ".deleteVoice", function (e) {
     showSwalMessageWithConfirm('آیا از حذف این صدا اطمینان دارید؟', 'warning', deleteVoice, index)
 })
 function deleteVoice(){
+
+}
+
+
+function hashtagClick(inp){
+    console.log(inp)
+}
+function changehashtag(){
+    const tds = document.querySelectorAll('.testHashtag');
+    let j = 0;
+    while (j < tds.length){
+        let paragraph = tds[j]
+        const words = paragraph.innerHTML.split(' ');
+        for (let i = 0; i < words.length; i++) {
+            if (words[i].startsWith('#')) {
+                let a = words[i]
+                words[i] = `<span style='color: #064aaf;cursor: pointer' onclick="hashtagClick('${a}')">${words[i]}</span>`;
+            }
+        }
+
+        paragraph.innerHTML = words.join(' ');
+        j = j+1
+    }
 
 }
