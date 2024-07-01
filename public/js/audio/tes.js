@@ -4,16 +4,42 @@ import WaveSurfer from './wavesurfer.esm.js'
 import RecordPlugin from './record.esm.js'
 let wavesurfer2, record
 let scrollingWaveform = true
-
+let duration;
+function getRecorderwidth(){
+    let w = document.body.clientWidth;
+    console.log(w)
+    if (w>=992){
+        return 858
+    }
+    if (w>600){
+        return 558;
+    }
+    return w-60;
+}
+function mixpxRecord(){
+    let w = document.body.clientWidth;
+    console.log(w)
+    if (w>=992){
+        return 171.601
+    }
+    if (w>630){
+        return 111.70;
+    }
+    return w/5.75;
+}
 const createWaveSurfer = () => {
     // Create an instance of WaveSurfer
     if (wavesurfer2) {
         wavesurfer2.destroy()
     }
+
     wavesurfer2 = WaveSurfer.create({
+        width:getRecorderwidth(),
+        minPxPerSec:mixpxRecord(),
         container: '#mic',
-        waveColor: 'rgb(200, 0, 200)',
+        waveColor: 'rgb(16,224,241)',
         progressColor: 'rgb(100, 0, 100)',
+        responsive:true
     })
 
     // Initialize the Record plugin
@@ -23,12 +49,16 @@ const createWaveSurfer = () => {
         const container = document.querySelector('#recordings')
         const recordedUrl = URL.createObjectURL(blob)
         container.innerHTML = ''
+        let w =document.getElementById('recordings').clientWidth
         // Create wavesurfer from the recorded audio
         const wavesurfer = WaveSurfer.create({
             container,
-            waveColor: 'rgb(200, 100, 0)',
-            progressColor: 'rgb(100, 50, 0)',
+            waveColor: 'rgb(26,66,220)',
+            progressColor: 'rgb(8,131,10)',
             url: recordedUrl,
+            width:w,
+            minPxPerSec:(w/duration)*1.032,
+            responsive:true
         })
 
         // Play button
@@ -69,6 +99,7 @@ const createWaveSurfer = () => {
 
 const progress = document.querySelector('#progress')
 const updateProgress = (time) => {
+    duration = time/1000
     // time will be in milliseconds, convert it to mm:ss format
     const formattedTime = [
         Math.floor((time % 3600000) / 60000), // minutes
