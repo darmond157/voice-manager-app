@@ -6,6 +6,8 @@ fastify.register(require("@fastify/postgres"), {
 
 fastify.post("/voice-detail", async (req, res) => {
 	const { name, description, date } = req.body;
+	if (!(name && description && date))
+		return res.send("please provide all fields ...");
 	await fastify.pg
 		.query(
 			"INSERT INTO voiceDetails (name,description,date) VALUES ($1,$2,$3)",
