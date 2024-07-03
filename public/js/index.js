@@ -1,6 +1,7 @@
 function getVoice(page, count) {
 
     let table = $("#voiceList tbody");
+    // todo : api for get previous voice
     table.empty();
     let outPut = '';
 
@@ -85,13 +86,17 @@ $("#voiceList").on('click', ".deleteVoice", function (e) {
     showSwalMessageWithConfirm('آیا از حذف این صدا اطمینان دارید؟', 'warning', deleteVoice, index)
 })
 function deleteVoice(){
-
+//     todo : api for delete voice
 }
 
 
 function hashtagClick(inp){
+    document.getElementById('filterVoice').classList.remove('d-none')
     console.log(inp)
 }
+$('#filterVoice').on('click',function (){
+    document.getElementById('filterVoice').classList.add('d-none')
+})
 function changehashtag(){
     const tds = document.querySelectorAll('.testHashtag');
     let j = 0;

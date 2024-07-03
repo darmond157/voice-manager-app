@@ -75,15 +75,7 @@ function playTrack(regionId) {
 }
 
 function mergeTrack() {
-	console.log(1111111111111111)
-	console.log(wavesurfer)
-	console.log(audioFile)
-	console.log(totalAudioDuration)
-	console.log(arrBuffer)
-	console.log(arrBuffer)
-	console.log(processedAudio)
-	console.log(intro)
-	console.log(111111111)
+
 	if(intro != undefined) {
 		intro.exit();
 		intro = undefined;
